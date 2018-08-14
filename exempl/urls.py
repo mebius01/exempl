@@ -22,6 +22,7 @@ mainpage_patterns = [
     re_path(r'^contact/', views.contact, name='Контакты'),
     path('product/<int:productid>/', views.product),
     path('users/<int:id>/<str:name>/', views.users),
+    path('menu/', views.menu, name='menu'),
 ] 
 
 urlpatterns = [
