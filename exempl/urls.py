@@ -15,18 +15,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
-from mainpage import views
+# from mainpage import views
+# from blog import views
 
-mainpage_patterns = [
-	path('', views.indexpage, name='indexpage'),
-    re_path(r'^contact/', views.contact, name='Контакты'),
-    path('product/<int:productid>/', views.product),
-    path('users/<int:id>/<str:name>/', views.users),
-    path('menu/', views.menu, name='menu'),
-] 
+# mainpage_patterns = [
+# 	path('', views.indexpage, name='indexpage'),
+#     re_path(r'^contact/', views.contact, name='Контакты'),
+#     path('product/<int:productid>/', views.product),
+#     path('users/<int:id>/<str:name>/', views.users),
+#     path('menu/', views.menu, name='menu'),
+# ]
+
+# blog_patterns = [
+# 	path('', views.index, name='index'),
+
+# ]
+
+ 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(mainpage_patterns)),
+    path('mainpage/', include('mainpage.urls')),
+    path('blog/', include('blog.urls')),
 ]
 
