@@ -34,8 +34,10 @@ from django.urls import path, include, re_path
  
 
 urlpatterns = [
+	path('', include('blog.urls')),
     path('admin/', admin.site.urls),
     path('mainpage/', include('mainpage.urls')),
     path('blog/', include('blog.urls')),
+
 ]
 
