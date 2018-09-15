@@ -1,20 +1,26 @@
 {% extends "blog/index.html" %}
 
 {% block content %}
-<section id="banner">
-<div class="content">
+
+	<section id="banner">
+	<div class="content">
 	<header>
-		 
-		<h1>{{ post_title }}</h1>
-		<p>{{post_time }}</p>
-	</header>
-	<p>{{post_body }}</p>
-	<ul class="actions">
-		<li><a href=# class="button big">Learn More</a></li>
-	</ul>
+		{% for post_title, post_time, post_body, post_slug in post_all %}
+		<a href={{ post_slug }}>
+		<strong>{{ post_title }}</strong> 
+		</a>
+		
+		{{ post_time }}
+	</header>	
+		<p>{{ post_body|slice:":400" }}</p>
+		
+		<hr>
+	{% endfor %}
 </div>
 
 </section>
 </div>
 </div>
+
+
 {% endblock %}
