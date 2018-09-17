@@ -4,9 +4,10 @@
 <section id="banner">
 <div class="content">
 	<header>
-		 
-		<h2>{{ post_title }}</h2>
-		<p>{{post_time }}</p>
+		<a href={{ post_slug }}>
+		<h3><strong>{{ post_title }}</strong> </h3>
+		</a>
+		{{post_time }}
 	</header>
 	<p>{{post_body }}</p>
 	<ul class="actions">

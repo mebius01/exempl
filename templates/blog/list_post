@@ -7,9 +7,7 @@
 	<header>
 		{% for post_title, post_time, post_body, post_slug in post_all %}
 		<a href={{ post_slug }}>
-		<strong>{{ post_title }}</strong> 
-		</a>
-		
+		<h3><strong>{{ post_title }}</strong></h3></a>	
 		{{ post_time }}
 	</header>	
 		<p>{{ post_body|slice:":400" }}</p>
