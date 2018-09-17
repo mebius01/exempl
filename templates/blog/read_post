@@ -1,0 +1,18 @@
+{% extends "blog/index.html" %}
+
+{% block content %}
+<section id="banner">
+<div class="content">
+	<header>
+		 
+		<h2>{{ post_title }}</h2>
+		<p>{{post_time }}</p>
+	</header>
+	<p>{{post_body }}</p>
+	
+</div>
+
+</section>
+</div>
+</div>
+{% endblock %}
