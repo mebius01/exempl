@@ -10,7 +10,9 @@
 		{{post_time }}
 	</header>
 	<p>{{post_body }}</p>
-	<hr>
+	<ul class="actions">
+		<li><a href=# class="button big">Learn More</a></li>
+	</ul>
 </div>
 
 </section>

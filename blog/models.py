@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-
 from django.db import models
  
 
@@ -23,7 +22,4 @@ class Post(models.Model):
 		return self.title
 
 	def get_absolute_url(self):
-          return reverse('blog.read_post', {'slug': self.slug})
-
-
-		
+		return (self.slug)

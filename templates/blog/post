@@ -3,16 +3,9 @@
 {% block content %}
 <section id="banner">
 <div class="content">
-	<header>
-		<a href={{ post_slug }}>
-		<h3><strong>{{ post_title }}</strong> </h3>
-		</a>
-		{{post_time }}
-	</header>
-	<p>{{post_body }}</p>
-	<ul class="actions">
-		<li><a href=# class="button big">Learn More</a></li>
-	</ul>
+
+	{{ post_title }}
+	
 </div>
 
 </section>
