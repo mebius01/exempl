@@ -4,8 +4,11 @@
 
 	<section id="banner">
 	<div class="content">
-	<p></span>Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.
-	<p>Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p></span>
+	<p></span>
+	Этот блог создан в результате изучения фреймворка Django, в нем много ошибок и недочетов. В дальнейшем приложение blog будет расширятся, добавляться полезные тем и расширятся функционал. Здесь будут описаны сложности, проблем и решения</p>
+	<p> 
+	Основные темы это linux и *nix подобные OS, python, django, различные БД, фронтенд и бекенд разработка.
+	</p></span>
 	<hr>
 	</div>
 	</section>
