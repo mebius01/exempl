@@ -9,7 +9,8 @@ def index(request):
 	post_time = Post.objects.all().last().created
 	post_body = Post.objects.all().last().body
 	post_slug = Post.objects.all().last().slug
-	return render(request, 'blog/index' , {'post_title': post_title, 'post_time': post_time, 'post_body': post_body, 'post_slug': post_slug})
+	return render(request, 'blog/index' , \
+		{'post_title': post_title, 'post_time': post_time, 'post_body': post_body, 'post_slug': post_slug})
 
 def list_post(request):
 	post_all=[]
@@ -30,4 +31,11 @@ def read_post(request, slug):
 	post_time = Post.objects.get(slug=slug).created
 	post_body = Post.objects.get(slug=slug).body
 	post_slug = Post.objects.get(slug=slug).slug
+<<<<<<< HEAD
 	return render(request, 'blog/read_post', {'post_title': post_title, 'post_time': post_time, 'post_body': post_body, 'post_slug': post_slug})
+=======
+	return render(request, 'blog/read_post', \
+		{'post_title': post_title, 'post_time': post_time, 'post_body': post_body, 'post_slug': post_slug})
+
+# 'WTF with new_post about_blog'
+>>>>>>> 0cd44c77e7c609c83970edab23a9f90bf5ff9489
