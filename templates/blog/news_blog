@@ -4,7 +4,7 @@
 <section id="banner">
 <div class="content">
 
-	{{ post_title }}
+	TEST
 	
 </div>
 

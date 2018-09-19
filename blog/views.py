@@ -25,17 +25,13 @@ def new_post(request):
 	text = 'THIS IS TEST'
 	return render(request, 'blog/new_post', {'text': text})
 
+def news_blog(request):
+	return render(request, 'blog/news_blog')
+	pass
+
 
 def read_post(request, slug):
-	post_title = Post.objects.get(slug=slug).title
-	post_time = Post.objects.get(slug=slug).created
-	post_body = Post.objects.get(slug=slug).body
-	post_slug = Post.objects.get(slug=slug).slug
-<<<<<<< HEAD
-	return render(request, 'blog/read_post', {'post_title': post_title, 'post_time': post_time, 'post_body': post_body, 'post_slug': post_slug})
-=======
+	post = Post.objects.get(slug=slug)
 	return render(request, 'blog/read_post', \
-		{'post_title': post_title, 'post_time': post_time, 'post_body': post_body, 'post_slug': post_slug})
+		{'post_title': post.title, 'post_time': post.created, 'post_body': post.body, 'post_slug': post.slug})
 
-# 'WTF with new_post about_blog'
->>>>>>> 0cd44c77e7c609c83970edab23a9f90bf5ff9489
