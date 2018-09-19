@@ -1,5 +1,7 @@
-{% extends "blog/index.html" %}
+{% extends "index.html" %}
+
 {% block content %}
+
 	<section id="banner">
 	<div class="content">
 		<p><h2>{{ text }}</h2></p>
@@ -8,4 +10,5 @@
 	</section>
 	</div>
 	</div>
+
 {% endblock %}
