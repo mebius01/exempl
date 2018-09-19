@@ -31,5 +31,3 @@ def read_post(request, slug):
 	post_body = Post.objects.get(slug=slug).body
 	post_slug = Post.objects.get(slug=slug).slug
 	return render(request, 'blog/read_post', {'post_title': post_title, 'post_time': post_time, 'post_body': post_body, 'post_slug': post_slug})
-
-# 'WTF with new_post about_blog'
