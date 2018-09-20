@@ -21,6 +21,8 @@ class PostForm(ModelForm):
 # https://developer.mozilla.org/ru/docs/Learn/Server-side/Django/Forms
 # https://translate.google.com/translate?sl=en&tl=ru&js=y&prev=_t&hl=ru&ie=UTF-8&u=https%3A%2F%2Fdocs.djangoproject.com%2Fen%2F2.1%2Ftopics%2Fforms%2Fmodelforms%2F&edit-text=
 # https://pocoz.gitbooks.io/django-v-primerah/content/glava-2-uluchshenie-bloga-s-pomoshyu-rasshirennyh-vozmozhnostej/sozdanie-sistemy-kommentariev/obrabotka-modelforms-v-predstavleniyah.html
+# https://stackoverflow.com/questions/22739701/django-save-modelform
+# https://www.simplifiedpython.net/django-modelform-example/
 
 class UserLoginForm(forms.Form):
 	username = forms.CharField(label=_(u'Username'), max_length=30)

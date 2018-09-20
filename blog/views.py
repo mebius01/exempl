@@ -27,9 +27,16 @@ def about_blog(request):
 	return render(request, 'blog/about_blog')
 
 def new_post(request):
-	form = PostForm()
-	form_save = form.save()
-	return render(request, 'blog/new_post', {'form': form,})
+	form = PostForm(request.POST)
+	if form.is_valid():
+		form_save = form.save()
+		
+	else:
+		form = PostForm()
+		return render(request, 'blog/new_post', {'form': form,})
+
+def new_post_complite(request):
+	return render(request, 'blog/new_post_complite')
 	
 def log_in(request):
 	form = UserLoginForm(request.POST or None)
