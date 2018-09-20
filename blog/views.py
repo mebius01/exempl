@@ -28,7 +28,8 @@ def about_blog(request):
 
 def new_post(request):
 	form = PostForm()
-	return render(request, 'blog/new_post', {'form': form})
+	form_save = form.save()
+	return render(request, 'blog/new_post', {'form': form,})
 	
 def log_in(request):
 	form = UserLoginForm(request.POST or None)
@@ -40,6 +41,9 @@ def log_in(request):
 	# 	if user and user.is_active:
 	# 		auth.login(request, user)
 	# 		return redirect('blog/index')
+	# Основные методы обработки форм https://djbook.ru/examples/19/
+	# Глава 5 "Формы" из книги Pro Django https://djbook.ru/examples/57/
+	# Список всех рецептов https://djbook.ru/forum/topic/5331/
 	return render(request, 'blog/log_in', context)
 
 

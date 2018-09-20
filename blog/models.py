@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.db import models
+from django.forms import ModelForm
  
 
 class Post(models.Model):
@@ -16,7 +17,7 @@ class Post(models.Model):
 	publish = models.DateTimeField(default=timezone.now)
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
-	status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
+	status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='published')
 	
 	def __str__(self):
 		return self.title
@@ -24,9 +25,4 @@ class Post(models.Model):
 	def get_absolute_url(self):
 		return (self.slug)
 
-from django import forms
-from django.utils.translation import ugettext as _
 
-class UserLoginForm(forms.Form):
-	username = forms.CharField(label=_(u'Username'), max_length=30)
-	password = forms.CharField(label=_(u'Password'), widget=forms.PasswordInput)
