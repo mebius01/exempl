@@ -4,12 +4,12 @@
 <section id="banner">
 <div class="content">
 	<header>
-		<a href="http://127.0.0.1:8000/{{ post_slug }}">
+		<a href="http://127.0.0.1:8000/blog/{{ post_slug }}">
 		<h3><strong>{{ post_title }}</strong> </h3>
 		</a>
-		{{post_time }}
+		{{ post_time }}
 	</header>
-	<p>{{post_body }}</p>
+	<p>{{ post_body }}</p>
 	<ul class="actions">
 		<li><a href=# class="button big">Learn More</a></li>
 	</ul>

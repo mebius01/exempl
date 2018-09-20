@@ -2,6 +2,11 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import DetailView
 from django.http import HttpResponseRedirect
 from blog.models import Post
+from blog.forms import PostForm, UserLoginForm
+
+from django.contrib import auth
+from django.shortcuts import redirect
+
 
 
 def index(request):
@@ -22,12 +27,26 @@ def about_blog(request):
 	return render(request, 'blog/about_blog')
 
 def new_post(request):
-	text = 'THIS IS TEST'
-	return render(request, 'blog/new_post', {'text': text})
+	form = PostForm()
+	return render(request, 'blog/new_post', {'form': form})
+	
+def log_in(request):
+	form = UserLoginForm(request.POST or None)
+	context = { 'form': form, }
+	# if request.method == 'POST' and form.is_valid():
+	# 	username = form.cleaned_data.get('username', None)
+	# 	password = form.cleaned_data.get('password', None)
+	# 	user = auth.authenticate(username=username, password=password)
+	# 	if user and user.is_active:
+	# 		auth.login(request, user)
+	# 		return redirect('blog/index')
+	return render(request, 'blog/log_in', context)
+
+
 
 def news_blog(request):
 	return render(request, 'blog/news_blog')
-	pass
+
 
 
 def read_post(request, slug):

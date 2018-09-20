@@ -2,21 +2,21 @@
 
 {% block content %}
 
-	<section id="banner">
-	<div class="content">
+  <section id="banner">
+  <div class="content">
 <!-- Form -->
-<h3><strong>New Post</strong> </h3>
+<h3><strong>Log In</strong> </h3>
 
 <form action="." method="post">
             {{ form.as_p }}
             {% csrf_token %}
-            <input type="submit" value="Опубликовать">
+            <input type="submit" value="LogIn">
         </form>
 </form>
-	<hr>
-	</div>
-	</section>
-	</div>
-	</div>
+  <hr>
+  </div>
+  </section>
+  </div>
+  </div>
 
 {% endblock %}
