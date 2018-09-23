@@ -3,10 +3,9 @@ from django import forms
 from django.utils.translation import ugettext as _
 from django.forms import ModelForm
 from blog.models import Post
-
+#from ckeditor_uploader.fields import RichTextUploadingField
 
 class PostForm(ModelForm):
-
 	class Meta:
 		model = Post
 		fields = ['title', 'body']

@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from blog.models import Post
 from blog.forms import PostForm, UserLoginForm
 from pytils.translit import slugify
+# from ckeditor_uploader.fields import RichTextUploadingField
 # from django.contrib import auth
 # from django.shortcuts import redirect
 
@@ -29,8 +30,8 @@ def about_blog(request):
 def new_post(request):
 	if request.method == 'POST':
 		form = PostForm(request.POST, request.FILES)
-		author = form.save()
-		author.slug = slugify(author.title)
+		slug_save = form.save()
+		slug_save.slug = slugify(slug_save.title)
 		if form.is_valid():
 			form.save()
 			return render(request, 'blog/new_post', {'complite': "complite"})

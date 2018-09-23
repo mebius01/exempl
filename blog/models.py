@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.forms import ModelForm
 from django.template.defaultfilters import slugify
+from ckeditor_uploader.fields import RichTextUploadingField
+
  
 
 class Post(models.Model):
@@ -16,7 +18,7 @@ class Post(models.Model):
 
 	slug = models.SlugField(max_length=250, unique_for_date='publish', verbose_name='URL',)# default=slugify('0'))
 	# author = models.ForeignKey(User, related_name='blog_posts')
-	body = models.TextField()
+	body = RichTextUploadingField()
 	publish = models.DateTimeField(default=timezone.now)
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)

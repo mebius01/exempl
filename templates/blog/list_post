@@ -10,7 +10,7 @@
 		<h3><strong>{{ post_title }}</strong></h3></a>	
 		{{ post_time }}
 	</header>	
-		<p>{{ post_body|slice:":400" }}</p>
+		<p>{{ post_body|safe|slice:":400" }}</p>
 		
 		<hr>
 	{% endfor %}

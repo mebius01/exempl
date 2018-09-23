@@ -9,7 +9,7 @@
 		</a>
 		{{post_time }}
 	</header>
-	<p>{{post_body }}</p>
+	<p>{{post_body|safe }}</p>
 	<hr>
 </div>
 
