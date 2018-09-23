@@ -7,12 +7,9 @@ from pytils.translit import slugify
 # from django.contrib import auth
 
 
+
 def index(request):
 	post = Post.objects.all().last()
-	# post_title = .title
-	# post_time = Post.objects.all().last().created
-	# post_body = Post.objects.all().last().body
-	# post_slug = Post.objects.all().last().slug
 	return render(request, 'blog/index' , \
 		{'post_title': post.title, 'post_time': post.created, 'post_body': post.body, 'post_slug': post.slug})
 
@@ -32,7 +29,8 @@ def new_post(request):
 		slug_save.slug = slugify(slug_save.title)
 		if form.is_valid():
 			form.save()
-			return render(request, 'blog/new_post', {'complite': "complite"})
+			# return HttpResponseRedirect(reverse('read_post', {'slug': slug}))
+			# return render(request, 'blog/new_post', {'complite': "complite"})
 	else:
 		form = PostForm()
 	return render(request, 'blog/new_post', {'form': form})
@@ -41,16 +39,6 @@ def new_post(request):
 def log_in(request):
 	form = UserLoginForm(request.POST or None)
 	context = { 'form': form, }
-	# if request.method == 'POST' and form.is_valid():
-	# 	username = form.cleaned_data.get('username', None)
-	# 	password = form.cleaned_data.get('password', None)
-	# 	user = auth.authenticate(username=username, password=password)
-	# 	if user and user.is_active:
-	# 		auth.login(request, user)
-	# 		return redirect('blog/index')
-	# Основные методы обработки форм https://djbook.ru/examples/19/
-	# Глава 5 "Формы" из книги Pro Django https://djbook.ru/examples/57/
-	# Список всех рецептов https://djbook.ru/forum/topic/5331/
 	return render(request, 'blog/log_in', context)
 
 
@@ -65,3 +53,11 @@ def read_post(request, slug):
 	return render(request, 'blog/read_post', \
 		{'post_title': post.title, 'post_time': post.created, 'post_body': post.body, 'post_slug': post.slug})
 
+# Предварительный просмотр форм
+# https://djbook.ru/rel1.9/ref/contrib/formtools/form-preview.html
+
+# Теги в блоге
+# https://github.com/alex/django-taggit
+
+# Батарейки для Данго
+# https://habr.com/post/136168/
