@@ -61,3 +61,9 @@ def read_post(request, slug):
 
 # Батарейки для Данго
 # https://habr.com/post/136168/
+
+# Поиск:
+		# django-haystack
+		# http://haystacksearch.org/
+		# django-sphinx
+		# https://github.com/jorgecarleitao/django-sphinxql
