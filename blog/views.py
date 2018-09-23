@@ -4,19 +4,17 @@ from django.http import HttpResponseRedirect
 from blog.models import Post
 from blog.forms import PostForm, UserLoginForm
 from pytils.translit import slugify
-# from ckeditor_uploader.fields import RichTextUploadingField
 # from django.contrib import auth
-# from django.shortcuts import redirect
-
 
 
 def index(request):
-	post_title = Post.objects.all().last().title
-	post_time = Post.objects.all().last().created
-	post_body = Post.objects.all().last().body
-	post_slug = Post.objects.all().last().slug
+	post = Post.objects.all().last()
+	# post_title = .title
+	# post_time = Post.objects.all().last().created
+	# post_body = Post.objects.all().last().body
+	# post_slug = Post.objects.all().last().slug
 	return render(request, 'blog/index' , \
-		{'post_title': post_title, 'post_time': post_time, 'post_body': post_body, 'post_slug': post_slug})
+		{'post_title': post.title, 'post_time': post.created, 'post_body': post.body, 'post_slug': post.slug})
 
 def list_post(request):
 	post_all=[]
