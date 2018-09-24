@@ -6,21 +6,21 @@
 
 	<section id="banner">
 	<div class="content">
-	<header>
+
 		{% for post_title, post_time, post_body, post_slug in post_all %}
 		<a href="http://127.0.0.1:8000/blog/{{ post_slug }}">
 		<h3><strong>{{ post_title }}</strong></h3></a>	
 		{{ post_time }}
 	</header>	
-		<p>{{ post_body|safe|slice:":400" }}</p>
+		<p>{{ post_body|safe }}</p>
 		
-		<hr>
+
 	{% endfor %}
+
 </div>
 
 </section>
 </div>
 </div>
-
 
 {% endblock %}

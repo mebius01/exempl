@@ -30,7 +30,7 @@ def new_post(request):
 		if form.is_valid():
 			form.save()
 			# return HttpResponseRedirect(reverse('read_post', {'slug': slug}))
-			# return render(request, 'blog/new_post', {'complite': "complite"})
+			return render(request, 'blog/new_post', {'complite': "complite"})
 	else:
 		form = PostForm()
 	return render(request, 'blog/new_post', {'form': form})
@@ -53,6 +53,12 @@ def read_post(request, slug):
 	return render(request, 'blog/read_post', \
 		{'post_title': post.title, 'post_time': post.created, 'post_body': post.body, 'post_slug': post.slug})
 
+# Установка и настройка CKEditor для проекта на Django 1.9.
+# https://tiv.space/?page=4
+# !!!!!!
+# Django - CKEditor Tutorial With CodeSnippet Syntax Highlighting
+# https://www.wdtutorials.com/django/ckeditor-tutorial-codesnippet-syntax-highlighting/
+# !!!!!!
 # Предварительный просмотр форм
 # https://djbook.ru/rel1.9/ref/contrib/formtools/form-preview.html
 
