@@ -5,7 +5,7 @@ from django.db import models
 from django.forms import ModelForm
 from django.template.defaultfilters import slugify
 from ckeditor_uploader.fields import RichTextUploadingField
-
+from taggit.managers import TaggableManager
  
 
 class Post(models.Model):
@@ -23,7 +23,8 @@ class Post(models.Model):
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
 	status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='published')
-	
+	tags = TaggableManager ()
+
 	def __str__(self):
 		return self.title
 
