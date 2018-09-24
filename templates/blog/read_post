@@ -12,8 +12,13 @@
 		{{post_time }}
 	</header>
 	<p>{{post_body|safe }}</p>
+	
+
+	ТЕГИ {{ post.tags.all|join:" | " }}
 	<hr>
+
 </div>
+
 
 </section>
 </div>

@@ -73,3 +73,4 @@ def read_post(request, slug):
 		# http://haystacksearch.org/
 		# django-sphinx
 		# https://github.com/jorgecarleitao/django-sphinxql
+# django-taggit http://www.autister.com/post/62-uroki-django-kak-dobavit-k-state-tegi-i-sdelat-filtr-po-tegam/
