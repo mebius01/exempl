@@ -32,13 +32,15 @@ def about_blog(request):
 #         # Without this next line the tags won't be saved.
 #         form . save_m2m ()
 # https://translate.google.com/translate?sl=en&tl=ru&js=y&prev=_t&hl=ru&ie=UTF-8&u=https%3A%2F%2Fdjango-taggit.readthedocs.io%2Fen%2Flatest%2Fforms.html&edit-text=
+# https://pocoz.gitbooks.io/django-v-primerah/content/glava-2-uluchshenie-bloga-s-pomoshyu-rasshirennyh-vozmozhnostej/dobavlyaem-tegi.html
 def new_post(request):
 	if request.method == 'POST':
 		form = PostForm(request.POST, request.FILES)
-		slug_save = form.save()
+		slug_save = form.save(commit = False)
 		slug_save.slug = slugify(slug_save.title)
 		if form.is_valid():
 			form.save()
+			form.save_m2m()
 			# return HttpResponseRedirect(reverse('read_post', {'slug': slug}))
 			return render(request, 'blog/new_post', {'complite': "complite"})
 	else:

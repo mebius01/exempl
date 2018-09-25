@@ -8,7 +8,7 @@ from blog.models import Post
 class PostForm(ModelForm):
 	class Meta:
 		model = Post
-		fields = ['title', 'body', 'tag_choice', 'tags']
+		fields = ['title', 'body', 'tags']
 
 class UserLoginForm(forms.Form):
 	username = forms.CharField(label=_(u'Username'), max_length=30)
