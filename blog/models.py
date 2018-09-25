@@ -14,6 +14,11 @@ class Post(models.Model):
 		('draft', 'Draft'),
 		('published', 'Published'),
 	)
+	TAGS_CHOICES = (
+		('Linux','linux'),
+		('Django','django'),
+		('Python','python'),
+		)
 	title = models.CharField(max_length=250)
 
 	slug = models.SlugField(max_length=250, unique_for_date='publish', verbose_name='URL',)# default=slugify('0'))
@@ -23,6 +28,7 @@ class Post(models.Model):
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
 	status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='published')
+	tag_choice = models.CharField(max_length=250, choices=TAGS_CHOICES)
 	tags = TaggableManager()
 
 	def __str__(self):
