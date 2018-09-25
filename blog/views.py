@@ -22,6 +22,16 @@ def list_post(request):
 def about_blog(request):
 	return render(request, 'blog/about_blog')
 
+
+# if request . method == "POST" :
+#     form = MyFormClass ( request . POST )
+#     if form . is_valid ():
+#         obj = form . save ( commit = False )
+#         obj . user = request . user
+#         obj . save ()
+#         # Without this next line the tags won't be saved.
+#         form . save_m2m ()
+# https://translate.google.com/translate?sl=en&tl=ru&js=y&prev=_t&hl=ru&ie=UTF-8&u=https%3A%2F%2Fdjango-taggit.readthedocs.io%2Fen%2Flatest%2Fforms.html&edit-text=
 def new_post(request):
 	if request.method == 'POST':
 		form = PostForm(request.POST, request.FILES)
@@ -49,9 +59,11 @@ def news_blog(request):
 
 
 def read_post(request, slug):
-	post = Post.objects.get(slug=slug)
+	post = get_object_or_404(Post, slug=slug)
+	# post = Post.objects.get(slug=slug)
+	tag = Post.tags.all()
 	return render(request, 'blog/read_post', \
-		{'post_title': post.title, 'post_time': post.created, 'post_body': post.body, 'post_slug': post.slug})
+		{'tag': tag, 'post': post}) #'post_title': post.title, 'post_time': post.created, 'post_body': post.body, 'post_slug': post.slug})
 
 # Установка и настройка CKEditor для проекта на Django 1.9.
 # https://tiv.space/?page=4
@@ -73,4 +85,7 @@ def read_post(request, slug):
 		# http://haystacksearch.org/
 		# django-sphinx
 		# https://github.com/jorgecarleitao/django-sphinxql
-# django-taggit http://www.autister.com/post/62-uroki-django-kak-dobavit-k-state-tegi-i-sdelat-filtr-po-tegam/
+
+# django_taggit
+# http://www.autister.com/post/62-uroki-django-kak-dobavit-k-state-tegi-i-sdelat-filtr-po-tegam/
+# Привязка tag_id, object_id, m2m.
