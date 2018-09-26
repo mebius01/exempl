@@ -14,8 +14,10 @@
 	<p>{{post.body|safe }}</p>
 	
 
-	ТЕГИ {{ tag | join:" | " }}
+	
+	<p class="tags">Tags: {{ post.tags.all|join:" | " }}</p>
 	<hr>
+	
 
 </div>
 
