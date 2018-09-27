@@ -6,12 +6,12 @@
 <section id="banner">
 <div class="content">
 	<header>
-		<a href="http://127.0.0.1:8000/blog/{{ post_slug }}">
-		<h3><strong>{{ post_title }}</strong> </h3>
+		<a href="http://127.0.0.1:8000/blog/{{ post.slug }}">
+		<h3><strong>{{ post.title }}</strong> </h3>
 		</a>
-		{{ post_time }}
+		{{ post.time }}
 	</header>
-	<p>{{ post_body|safe }}</p>
+	<p>{{ post.body|safe }}</p>
 	<ul class="actions">
 		<li><a href=# class="button big">Learn More</a></li>
 	</ul>

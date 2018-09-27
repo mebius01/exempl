@@ -4,19 +4,34 @@
 
 {% block content %}
 
-	<section id="banner">
-	<div class="content">
+<section id="banner">
+<div class="content">
 
-		{% for post_title, post_time, post_body, post_slug in post_all %}
-		<a href="http://127.0.0.1:8000/blog/{{ post_slug }}">
-		<h3><strong>{{ post_title }}</strong></h3></a>	
-		{{ post_time }}
-	</header>	
-		<p>{{ post_body|safe }}</p>
-		<p class="tags">Tags: {{ post.tags.all|join:" | " }}</p>
+{% for on_of_page_list in page_list %}
+    <!-- Каждый «on_of_page_list» является объектом модели on_of_page_list -->
+    {{ on_of_page_list.full_name|upper }}<br />
+    <a href="http://127.0.0.1:8000/blog/{{ on_of_page_list.slug }}">
+    <h3><strong>{{ on_of_page_list.title }}</strong></h3></a>
+    {{ on_of_page_list.time }}
+<!--     </header> -->
+	<p> {{ on_of_page_list.body|safe }}</p>
+	<p class="tags">Tags: {{ post.tags.all|join:" | " }}</p>    
+{% endfor %}
 
-	{% endfor %}
+<div class="pagination">
+    <span class="step-links">
+        {% if page_list.has_previous %}
+            <a href="?page={{ page_list.previous_page_number }}">previous</a>
+        {% endif %}
 
+        <span class="current">
+            Page {{ page_list.number }} of {{ page_list.paginator.num_pages }}.
+        </span>
+
+        {% if page_list.has_next %}
+            <a href="?page={{ page_list.next_page_number }}">next</a>
+        {% endif %}
+    </span>
 </div>
 
 </section>
