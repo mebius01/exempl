@@ -12,8 +12,13 @@ def index(request):
 	return render(request, 'blog/index' , {'post': post})
 
 
-def list_post(request):
+def list_post(request, tag_slug=None):
 	post_list_all = Post.objects.all().order_by('-publish')
+	tag = None
+	if tag_slug:
+		tag = get_object_or_404(Tag, slug=tag_slug)
+		post_list_all = post_list_all.filter(tags__in=[tag])
+
 	paginator = Paginator(post_list_all, 4)
 	page = request.GET.get('page')
 	try:
@@ -24,7 +29,7 @@ def list_post(request):
 	except EmptyPage:
         # Если страница выходит за пределы допустимого диапазона (например, 9999), казать последнюю страницу результатов
 		page_list = paginator.page(paginator.num_pages)
-	return render(request, 'blog/list_post', {"page_list": page_list})
+	return render(request, 'blog/list_post', {'page': page, 'page_list': page_list,'tag': tag})
 
 
 def about_blog(request):
@@ -60,7 +65,7 @@ def news_blog(request):
 
 def read_post(request, slug):
 	post = Post.objects.get(slug=slug)
-	tag = Post.tags.all()
+	tag = post.tags.all()
 	return render(request, 'blog/read_post', {'tag': tag, 'post': post})
 
 # Установка и настройка CKEditor для проекта на Django 1.9.

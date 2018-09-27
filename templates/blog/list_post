@@ -7,16 +7,35 @@
 <section id="banner">
 <div class="content">
 
+
+{% if tag %}
+    <h2>Posts tagged with "{{ tag.name }}"</h2>
+{% endif %}
+
+
 {% for on_of_page_list in page_list %}
     <!-- Каждый «on_of_page_list» является объектом модели on_of_page_list -->
     {{ on_of_page_list.full_name|upper }}<br />
     <a href="http://127.0.0.1:8000/blog/{{ on_of_page_list.slug }}">
     <h3><strong>{{ on_of_page_list.title }}</strong></h3></a>
     {{ on_of_page_list.time }}
-<!--     </header> -->
+
 	<p> {{ on_of_page_list.body|safe }}</p>
-	<p class="tags">Tags: {{ post.tags.all|join:" | " }}</p>    
+
+	<p class="post-meta">
+		Ters |
+		{% for tag in on_of_page_list.tags.all %}
+			<a href="{% url 'list_post_by_tag' tag.slug %}"> {{ tag.name }}</a> |
+		{% endfor %}
+
+    	<!-- TEGS: {{ on_of_page_list.tags.all|join:" | " }} -->
+	</p>
+	<hr>
+
 {% endfor %}
+
+
+
 
 <div class="pagination">
     <span class="step-links">

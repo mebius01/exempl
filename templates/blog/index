@@ -12,6 +12,17 @@
 		{{ post.time }}
 	</header>
 	<p>{{ post.body|safe }}</p>
+
+	<p class="post-meta">
+		Ters |
+		{% for tag in post.tags.all %}
+			<a href="{% url 'list_post_by_tag' tag.slug %}"> {{ tag.name }}</a> |
+		{% endfor %}
+
+    	<!-- TEGS: {{ on_of_page_list.tags.all|join:" | " }} -->
+	</p>
+	<hr>
+
 	<ul class="actions">
 		<li><a href=# class="button big">Learn More</a></li>
 	</ul>

@@ -14,8 +14,12 @@
 	<p>{{post.body|safe }}</p>
 	
 
-	
-	<p class="tags">Tags: {{ post.tags.all|join:" | " }}</p>
+	<p class="post-meta">
+	Ters | 
+	{% for tag in post.tags.all %}
+		<a href="{% url 'list_post_by_tag' tag.slug %}"> {{ tag.name }}</a> |
+	{% endfor %}
+	<!-- <p class="tags">Tags: {{ post.tags.all|join:" | " }}</p> -->
 	<hr>
 	
 

@@ -67,13 +67,13 @@
 									<header class="major">
 										<h2>Menu</h2>
 									</header>
-									<ul>
-										<li><a href="http://127.0.0.1:8000/blog/log_in">Log In</a></li>
-										<li><a href="http://127.0.0.1:8000/blog/index">Home Page</a></li>
-										<li><a href="http://127.0.0.1:8000/blog/list_post">List Post</a></li>
-										<li><a href="http://127.0.0.1:8000/blog/new_post">New Post</a></li>
-										<li><a href="http://127.0.0.1:8000/blog/about_blog">About This Blog</a></li>
-										<li><a href="http://127.0.0.1:8000/blog/news_blog">News Blog</a></li>
+									<ul>										
+										<li><a href="{% url 'log_in' %}">Log In</a></li>
+										<li><a href="{% url 'index' %}">Home Page</a></li>
+										<li><a href="{% url 'list_post' %}">List Post</a></li>
+										<li><a href="{% url 'new_post' %}">New Post</a></li>
+										<li><a href="{% url 'about_blog' %}">About This Blog</a></li>
+										<li><a href="{% url 'news_blog' %}">News Blog</a></li>
 
 										<!--
 										<li>
