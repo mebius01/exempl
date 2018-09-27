@@ -84,10 +84,14 @@ def read_post(request, slug):
 # https://habr.com/post/136168/
 
 # Поиск:
+		# http://qaru.site/questions/6036963/explain-search-sphinxhaystack-in-simple-context
+		# https://habr.com/hub/sphinx/all/page2/
 		# django-haystack
 		# http://haystacksearch.org/
 		# django-sphinx
 		# https://github.com/jorgecarleitao/django-sphinxql
+		# django-elasticsearch
+		# https://adw0rd.com/2015/12/16/django-elasticsearch/
 
 # django_taggit
 
