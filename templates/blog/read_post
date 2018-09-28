@@ -6,19 +6,30 @@
 <section id="banner">
 <div class="content">
 	<header>
-		<a href="http://127.0.0.1:8000/{{ post_slug }}">
+		<a href="{% url 'read_post' post.slug %}">
 		<h3><strong>{{ post.title }}</strong> </h3>
 		</a>
 		{{ post.time }}
 	</header>
 	<p>{{post.body|safe }}</p>
-	{{ complite }}
-	<form action="." method="comment">
-	{{ comment_form.media }}
-	{{ comment_form.as_p }}
-	{% csrf_token %}
-	<input type="submit" value="COOM">
-    </form>
+	
+	<hr>
+
+{% for comment in comment_all %}
+    <div class="comment">
+        <p class="info">
+            <kdb> Comment {{ forloop.counter }}</kdb>  
+            <strong>{{ comment.name }}</strong> 
+            <ins> <small>{{ comment.created }}</small></ins>
+        </p>
+
+        {{ comment.body|linebreaks }}
+    </div>
+{% empty %}
+    <p>There are no comments yet.</p>
+{% endfor %}
+	
+	<hr>
 	<p class="post-meta">
 	Ters | 
 	{% for tag in post.tags.all %}

@@ -6,7 +6,7 @@
 <section id="banner">
 <div class="content">
 	<header>
-		<a href="http://127.0.0.1:8000/blog/{{ post.slug }}">
+		<a href="{% url 'read_post' post.slug %}">
 		<h3><strong>{{ post.title }}</strong> </h3>
 		</a>
 		{{ post.time }}
@@ -24,7 +24,7 @@
 	<hr>
 
 	<ul class="actions">
-		<li><a href=# class="button big">Learn More</a></li>
+		<li><a href="{% url 'read_post' post.slug %}" class="button big">Learn More</a></li>
 	</ul>
 </div>
 
