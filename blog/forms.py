@@ -17,4 +17,4 @@ class UserLoginForm(forms.Form):
 class CommentForm(forms.ModelForm):
 	class Meta:
 		model = Comments
-		fields = ('name', 'email', 'body')
+		fields = ['name', 'email', 'body']

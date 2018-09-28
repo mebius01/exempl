@@ -66,11 +66,12 @@ def news_blog(request):
 def read_post(request, slug):
 	post = Post.objects.get(slug=slug)
 	tag = post.tags.all()
-	comment_form = CommentForm(request.POST, request.FILES)
-	
-	if comment_form.is_valid():
-		comment_form.save()
-		return render(request, 'blog/read_post', {'complite': "complite"})
+	if request.method == 'POST':
+		comment_form = CommentForm(request.POST, request.FILES)
+
+		if comment_form.is_valid():
+			comment_form.save()
+			return render(request, 'blog/read_post', {'tag': tag, 'post': post,'complite': "complite"})
 	else:
 		comment_form = CommentForm()
 	return render(request, 'blog/read_post', {'tag': tag, 'post': post, 'comment_form': comment_form})
