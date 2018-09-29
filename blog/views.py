@@ -7,6 +7,7 @@ from pytils.translit import slugify
 from taggit.models import Tag
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+
 def index(request):
 	post = Post.objects.all().last()
 	return render(request, 'blog/index' , {'post': post})

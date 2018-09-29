@@ -9,18 +9,18 @@
 
 
 {% if tag %}
-    <h2>Posts tagged with "{{ tag.name }}"</h2>
+    <strong> Posts tagged with "</strong> <i>{{ tag.name }} </i>
 {% endif %}
 
 
 {% for on_of_page_list in page_list %}
     <!-- Каждый «on_of_page_list» является объектом модели on_of_page_list -->
     {{ on_of_page_list.full_name|upper }}<br />
-    <a href="http://127.0.0.1:8000/blog/{{ on_of_page_list.slug }}">
+    <a href="{% url 'read_post' on_of_page_list.slug %}">
     <h3><strong>{{ on_of_page_list.title }}</strong></h3></a>
     {{ on_of_page_list.time }}
 
-	<p> {{ on_of_page_list.body|safe }}</p>
+	<p> {{ on_of_page_list.body | truncatewords_html:28 | safe }} </p>
 
 	<p class="post-meta">
 		Ters |

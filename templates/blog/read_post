@@ -3,46 +3,46 @@
 {% extends "index.html" %}
 
 {% block content %}
-<section id="banner">
-<div class="content">
-	<header>
-		<a href="{% url 'read_post' post.slug %}">
-		<h3><strong>{{ post.title }}</strong> </h3>
-		</a>
-		{{ post.time }}
-	</header>
-	<p>{{post.body|safe }}</p>
-	
-	<hr>
+			<section id="banner">
+			<div class="content">
+				<header>
+					<a href="{% url 'read_post' post.slug %}">
+					<h3><strong>{{ post.title }}</strong> </h3>
+					</a>
+					{{ post.time }}
+				</header>
+				<p>{{post.body|safe }}</p>
+				
+				<hr>
 
-{% for comment in comment_all %}
-    <div class="comment">
-        <p class="info">
-            <kdb> Comment {{ forloop.counter }}</kdb>  
-            <strong>{{ comment.name }}</strong> 
-            <ins> <small>{{ comment.created }}</small></ins>
-        </p>
+			{% for comment in comment_all %}
+			    <div class="comment">
+			        <p class="info">
+			            <kdb> Comment {{ forloop.counter }}</kdb>  
+			            <strong>{{ comment.name }}</strong> 
+			            <ins> <small>{{ comment.created }}</small></ins>
+			        </p>
 
-        {{ comment.body|linebreaks }}
-    </div>
-{% empty %}
-    <p>There are no comments yet.</p>
-{% endfor %}
-	
-	<hr>
-	<p class="post-meta">
-	Ters | 
-	{% for tag in post.tags.all %}
-		<a href="{% url 'list_post_by_tag' tag.slug %}"> {{ tag.name }}</a> |
-	{% endfor %}
-	<!-- <p class="tags">Tags: {{ post.tags.all|join:" | " }}</p> -->
-	<hr>
-	
+			        {{ comment.body|linebreaks }}
+			    </div>
+			{% empty %}
+			    <p>There are no comments yet.</p>
+			{% endfor %}
+				
+				<hr>
+				<p class="post-meta">
+				Ters | 
+				{% for tag in post.tags.all %}
+					<a href="{% url 'list_post_by_tag' tag.slug %}"> {{ tag.name }}</a> |
+				{% endfor %}
+				<!-- <p class="tags">Tags: {{ post.tags.all|join:" | " }}</p> -->
+				<hr>
+				
 
-</div>
+			</div>
 
 
-</section>
-</div>
-</div>
+			</section>
+			</div>
+			</div>
 {% endblock %}
