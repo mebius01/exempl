@@ -2,6 +2,7 @@ from django.urls import path, include, re_path
 from blog import views
 
 urlpatterns = [
+	path('base/', views.base, name='base'),
 	path('', views.index, name='index'),
 	path('log_in', views.log_in, name='log_in'),
 	path('index/', views.index, name='index'),
