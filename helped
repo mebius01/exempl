@@ -1,3 +1,11 @@
+# bootstrap
+	# http://bootstrap-4.ru/docs/4.1/getting-started/introduction/ документация
+	# http://bootstrap-3.ru/components.php компоненты
+	# https://bootstrapcreative.com/resources/bootstrap-4-css-classes-index/ Все классы
+	# http://getbootstrap.ru/docs/v4-alpha/components/utilities/#close-icon Служебные классы
+	# https://django-bootstrap3.readthedocs.io/en/latest/index.html django-bootstrap3’s documentation!
+	# https://simpleisbetterthancomplex.com/article/2017/08/19/how-to-render-django-form-manually.html How to Render Django Form Manually
+
 # URL
 	# http://softwaremaniacs.org/blog/2006/08/04/url-reverse/ URL в шаблонах через reverse
 	# http://www.autister.com/post/44-kak-sdelat-v-django-chpu-url-ili-chto-takoe-slug/ Как сделать в Django ЧПУ url или что такое Slug 
@@ -22,6 +30,7 @@
 # https://habr.com/post/136168/
 
 # Поиск:
+		# https://evileg.com/ru/post/21/ Django - Урок 012. Внедрение поиска по сайту с пагинацией результатов
 		# http://qaru.site/questions/6036963/explain-search-sphinxhaystack-in-simple-context
 		# https://habr.com/hub/sphinx/all/page2/
 		# django-haystack
@@ -42,9 +51,12 @@
 # Пагинатор
 # https://docs.djangoproject.com/en/2.1/topics/pagination/
 
-DB
+# DB
 	# Django+PostgreSQL за 8 шагов
 	# https://djbook.ru/examples/77/
 
 	# Использование MongoDB в Django
 	# https://habr.com/post/160191/
+
+# Использование системы аутентификации пользователя
+	# https://djbook.ru/rel1.9/topics/auth/default.html#topic-authorization

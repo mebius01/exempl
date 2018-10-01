@@ -11,8 +11,14 @@ class PostForm(ModelForm):
 		fields = ['title', 'body', 'tags']
 
 class UserLoginForm(forms.Form):
-	username = forms.CharField(label=_(u'Username'), max_length=30)
-	password = forms.CharField(label=_(u'Password'), widget=forms.PasswordInput)
+	username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Username'}))
+	password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Password'}))
+	# username = forms.CharField(label=_('Username'), max_length=30)
+	# password = forms.CharField(label=_('Password'), widget=forms.PasswordInput)
+	class Meta:
+		model = ModelForm
+		fields = ['username','password']
+# https://www.techinfected.net/2016/11/style-django-forms-with-bootstrap.html
 
 class CommentForm(forms.ModelForm):
 	class Meta:

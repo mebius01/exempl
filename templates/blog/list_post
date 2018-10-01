@@ -42,12 +42,9 @@
     {% endif %}
 
         <span class="current">
-            Page {{ page_list.number }} of {{ page_list.paginator.num_pages }}
-<!--                 <li><a href="#">1</a></li>
-			    <li><a href="#">2</a></li>
-			    <li><a href="#">3</a></li>
-			    <li><a href="#">4</a></li>
-			    <li><a href="#">5</a></li> -->
+        	{% for p in page_list.paginator.page_range %}
+        		<li><a href="?page={{ p }}">{{ p }}</a></li>
+        	{% endfor %}
         </span>
 
     {% if page_list.has_next %}

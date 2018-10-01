@@ -7,18 +7,43 @@
   <section id="banner">
   <div class="content">
 <!-- Form -->
-<h3><strong>Log In</strong> </h3>
 
-<form action="." method="post">
-            {{ form.as_p }}
-            {% csrf_token %}
-            <input type="submit" value="LogIn">
-        </form>
+<!-- <form action="." method="post"  novalidate>
+  {% csrf_token %}
+  <span class="input-group-addon">{{ form }}<button type="submit" class="btn btn-default">LogIn</button></span>
 </form>
+ -->
+<div class="container">
+    <h1>Example Form</h1>
+   <!--  <div style="width:30%"> -->
+        <form action="">
+            {%csrf_token%}
+            {% for error in form.non_field_errors %}
+            <div class="form-group has-errors text-danger small">
+                {{error}}
+            </div>
+            {% endfor %}
+            {% for field in form %}
+            <div class="form-group has-errors text-danger small">
+                {{field.errors}}
+            </div>
+            <div class="form-group has-errors text-danger small">
+            </div>
+            <div class="form-group">
+                {{field}}
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-default" >Login</button>
+
+<!--    <form action="." method="post" >
+      {{ form.as_p }}
+      {% csrf_token %}
+  <input type="submit" value="LogIn">
+</form> -->
+</div>
   <hr>
   </div>
   </section>
-  </div>
   </div>
 
 {% endblock %}
