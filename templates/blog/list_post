@@ -9,7 +9,7 @@
 
 
 {% if tag %}
-    <strong> Posts tagged with "</strong> <i>{{ tag.name }} </i>
+    <strong> Посты с меткоы: </strong><span class="label label-info"> {{ tag.name }}</a></span>
 {% endif %}
 
 

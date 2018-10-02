@@ -22,10 +22,6 @@
     	<!-- TEGS: {{ on_of_page_list.tags.all|join:" | " }} -->
 	</p>
 	<hr>
-
-	<ul class="actions">
-		<li><a href="{% url 'read_post' post.slug %}" class="button big">Learn More</a></li>
-	</ul>
 </div>
 
 </section>

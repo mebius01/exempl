@@ -57,9 +57,14 @@
 
       </li>
       </ul>
+
     </div><!-- /.navbar-collapse -->
+  {% for tag in cloud %}
+  <a href="{% url 'list_post_by_tag' tag.slug %}"> <span class="label label-info"> {{ tag.name }}</a></span>
+  {% endfor %}
   </div><!-- /.container-fluid -->
 </nav>
+
 
 
 
