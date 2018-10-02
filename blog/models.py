@@ -6,7 +6,9 @@ from django.forms import ModelForm
 from django.template.defaultfilters import slugify
 from ckeditor_uploader.fields import RichTextUploadingField
 from taggit.managers import TaggableManager
- 
+from froala_editor.fields import FroalaField
+
+
 
 class Post(models.Model):
 
@@ -18,12 +20,13 @@ class Post(models.Model):
 	# annotation = models.TextField(max_length=1730)
 	slug = models.SlugField(max_length=250, unique_for_date='publish', verbose_name='URL',)# default=slugify('0'))
 	# author = models.ForeignKey(User, related_name='blog_posts')
-	body = RichTextUploadingField()
+	body = FroalaField()
 	publish = models.DateTimeField(default=timezone.now)
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
 	status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='published')
 	tags = TaggableManager(help_text = "Список тегов, разделенных запятыми.", through=None)
+	
 
 	def __str__(self):
 		return self.title

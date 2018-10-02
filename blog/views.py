@@ -8,15 +8,25 @@ from taggit.models import Tag
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Count
 
-post = Post.objects.all()
-cloud = Tag.objects.all().annotate(c=Count('post')).filter(c__gt=0)
+# post = Post.objects.all()
+cloud = Post.tags.most_common()
 
-# def base(request):
-# 	return render(request, 'base.html', {'cloud': cloud, 'post': post})
+
+def test(request):
+	if request.method == 'POST':
+		form = PageForm(request.POST, request.FILES)
+		slug_save = form.save()
+		slug_save.slug = slugify(slug_save.title)
+		if form.is_valid():
+			form.save()
+			return render(request, 'blog/test', {'cloud': cloud,  'forma': "FORMA"})
+	else:
+		form = PostForm()
+	return render(request, 'blog/new_post', {'cloud': cloud, 'form': form})
 
 def index(request):
 	post = Post.objects.all().last()
-	return render(request, 'blog/index' , {'cloud': cloud, 'post': post, 'post': post})
+	return render(request, 'blog/index' , {'cloud': cloud,  'post': post})
 
 
 def list_post(request, tag_slug=None):
@@ -36,11 +46,11 @@ def list_post(request, tag_slug=None):
 	except EmptyPage:
         # Если страница выходит за пределы допустимого диапазона (например, 9999), казать последнюю страницу результатов
 		page_list = paginator.page(paginator.num_pages)
-	return render(request, 'blog/list_post', {'cloud': cloud, 'post': post, 'page': page, 'page_list': page_list,'tag': tag})
+	return render(request, 'blog/list_post', {'cloud': cloud,  'page': page, 'page_list': page_list,'tag': tag})
 
 
 def about_blog(request):
-	return render(request, 'blog/about_blog', {'cloud': cloud, 'post': post,})
+	return render(request, 'blog/about_blog', {'cloud': cloud, })
 
 
 
@@ -52,22 +62,22 @@ def new_post(request):
 		if form.is_valid():
 			form.save()
 			# return HttpResponseRedirect(reverse('read_post', {'slug': slug}))
-			return render(request, 'blog/new_post', {'cloud': cloud, 'post': post,'complite': "complite"})
+			return render(request, 'blog/new_post', {'cloud': cloud, 'complite': "complite"})
 	else:
 		form = PostForm()
-	return render(request, 'blog/new_post', {'cloud': cloud, 'post': post,'form': form})
+	return render(request, 'blog/new_post', {'cloud': cloud, 'form': form})
 
 	
 def log_in(request):
 	form = UserLoginForm(request.POST or None)
 	context = { 'form': form, }
-	return render(request, 'blog/log_in', {'cloud': cloud, 'post': post, 'form': form, })
+	return render(request, 'blog/log_in', {'cloud': cloud,  'form': form, })
 
 
 
 def news_blog(request):
 	# cloud = Tag.objects.all().annotate(c=Count('post')).filter(c__gt=0)
-	return render(request, 'blog/news_blog', {'cloud': cloud, 'post': post,})# {'cloud': cloud})
+	return render(request, 'blog/news_blog', {'cloud': cloud, })# {'cloud': cloud})
 
 
 
@@ -75,5 +85,5 @@ def read_post(request, slug):
 	post = Post.objects.get(slug=slug)
 	tag = post.tags.all()
 	comment_all = Comments.objects.filter(post_id=post)
-	return render(request, 'blog/read_post', {'cloud': cloud, 'post': post,'tag': tag, 'post': post, 'comment_all': comment_all})
+	return render(request, 'blog/read_post', {'cloud': cloud, 'tag': tag, 'post': post, 'comment_all': comment_all})
 

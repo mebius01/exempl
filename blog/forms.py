@@ -4,6 +4,8 @@ from django.utils.translation import ugettext as _
 from django.forms import ModelForm
 from blog.models import Post, Comments
 #from ckeditor_uploader.fields import RichTextUploadingField
+from froala_editor.widgets import FroalaEditor
+
 
 class PostForm(ModelForm):
 	class Meta:
