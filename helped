@@ -60,3 +60,6 @@
 
 # Использование системы аутентификации пользователя
 	# https://djbook.ru/rel1.9/topics/auth/default.html#topic-authorization
+
+# Deploy
+	# https://tutorial.djangogirls.org/ru/deploy/
