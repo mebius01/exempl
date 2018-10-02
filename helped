@@ -6,6 +6,7 @@
 	# https://django-bootstrap3.readthedocs.io/en/latest/index.html django-bootstrap3’s documentation!
 	# https://simpleisbetterthancomplex.com/article/2017/08/19/how-to-render-django-form-manually.html How to Render Django Form Manually
 	# https://www.w3schools.com/bootstrap/default.asp !!!! много примеров
+	# https://mdbootstrap.com/
 
 # URL
 	# http://softwaremaniacs.org/blog/2006/08/04/url-reverse/ URL в шаблонах через reverse
