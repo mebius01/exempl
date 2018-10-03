@@ -7,10 +7,23 @@ from pytils.translit import slugify
 from taggit.models import Tag
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Count
+from django.contrib.auth.forms import UserCreationForm
 
 # post = Post.objects.all()
 cloud = Post.tags.most_common()
 
+
+def register(request):
+	form = UserCreationForm()
+	if request.method == 'POST':
+		data = request.POST.copy()
+		errors = form.get_validation_errors(data)
+		if not errors:
+			new_user = form.save(data)
+			return HttpResponseRedirect('/books/')
+		else:
+			data, errors = {}, {}
+			return render_to_response('blog/log_in', {'form': forms.FormWrapper(form, data, errors)})
 
 def test(request):
 	if request.method == 'POST':
