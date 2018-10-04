@@ -8,34 +8,35 @@ from taggit.models import Tag
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Count
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import auth
+from django.contrib.auth import authenticate
 
 # post = Post.objects.all()
 cloud = Post.tags.most_common()
 
 
-def register(request):
-	form = UserCreationForm()
+def sing_up(request):
 	if request.method == 'POST':
-		data = request.POST.copy()
-		errors = form.get_validation_errors(data)
-		if not errors:
-			new_user = form.save(data)
-			return HttpResponseRedirect('/books/')
-		else:
-			data, errors = {}, {}
-			return render_to_response('blog/log_in', {'form': forms.FormWrapper(form, data, errors)})
-
-def test(request):
-	if request.method == 'POST':
-		form = PageForm(request.POST, request.FILES)
-		slug_save = form.save()
-		slug_save.slug = slugify(slug_save.title)
+		form = UserCreationForm(request.POST)
 		if form.is_valid():
-			form.save()
-			return render(request, 'blog/test', {'cloud': cloud,  'forma': "FORMA"})
+			user = form.save()
+			auth.login(request, user)
+			return render(request, 'blog/news_blog')
 	else:
-		form = PostForm()
-	return render(request, 'blog/new_post', {'cloud': cloud, 'form': form})
+		form = UserCreationForm()
+	return render(request, 'blog/sing_up', {'form': form})
+
+	# if request.method == 'POST':
+	# 	form = PostForm(request.POST, request.FILES)
+	# 	slug_save = form.save()
+	# 	slug_save.slug = slugify(slug_save.title)
+	# 	if form.is_valid():
+	# 		form.save()
+	# 		# return HttpResponseRedirect(reverse('read_post', {'slug': slug}))
+	# 		return render(request, 'blog/new_post', {'cloud': cloud, 'complite': "complite"})
+	# else:
+	# 	form = PostForm()
+	# return render(request, 'blog/new_post', {'cloud': cloud, 'form': form})
 
 def index(request):
 	post = Post.objects.all().last()
@@ -82,10 +83,20 @@ def new_post(request):
 
 	
 def log_in(request):
-	form = UserLoginForm(request.POST or None)
-	context = { 'form': form, }
-	return render(request, 'blog/log_in', {'cloud': cloud,  'form': form, })
-
+	if request.user.is_authenticated:
+		return render(request, 'blog/news_blog')
+	if request.method == 'POST':
+		username = request.POST.get('username')
+		password = request.POST.get('password')
+		user = authenticate(username=username, password=password)
+		if user is not None:
+			auth.login(request, user)
+		else:
+			messages.error(request, 'Error wrong username/password')
+	return render(request, 'blog/log_in')
+	# form = UserLoginForm(request.POST or None)
+	# context = { 'form': form, }
+	# return render(request, 'blog/log_in', {'cloud': cloud,  'form': form, })
 
 
 def news_blog(request):
