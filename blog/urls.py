@@ -1,8 +1,10 @@
 from django.urls import path, include, re_path
 from blog import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
 	path('sing_up/', views.sing_up, name='sing_up'),
+	path('log_out/', auth_views.LogoutView.as_view(), name='log_out'),
 	path('', views.index, name='index'),
 	path('log_in', views.log_in, name='log_in'),
 	path('index/', views.index, name='index'),
