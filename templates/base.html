@@ -57,13 +57,17 @@
       </form>
     
       <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a class="nav-link" href="{% url 'log_out' %}">{{ user.username }}</a></li>
+      <li><a href="{% url 'sing_up' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="{% url 'log_in' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
+      
+      </ul>
+     </div>
+    
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
+<!-- https://mdbootstrap.com/components/navbar/ -->
 <div class="container">
   {% for tag in cloud %}
     <a href="{% url 'list_post_by_tag' tag.slug %}"> <span class="label label-info"> {{ tag.name }} {{ tag.num_times }}</a></span>
