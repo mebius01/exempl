@@ -10,9 +10,16 @@ from django.db.models import Count
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import auth
 from django.contrib.auth import authenticate
+from django.contrib import messages
+
 
 # post = Post.objects.all()
 cloud = Post.tags.most_common()
+
+
+def test(request):
+	post = Post.objects.all().last()
+	return render(request, 'blog/test' , {'cloud': cloud,  'post': post})
 
 
 def sing_up(request):

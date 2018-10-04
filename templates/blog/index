@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 
-{% extends "base.html" %}
+{% extends "test_bootstrap.html" %}
 
 {% block content %}
 <section id="banner">
