@@ -19,7 +19,7 @@ cloud = Post.tags.most_common()
 
 def test(request):
 	post = Post.objects.all().last()
-	return render(request, 'blog/test' , {'cloud': cloud,  'post': post})
+	return render(request, 'blog/test' , { 'post': post})
 
 
 def sing_up(request):
@@ -40,14 +40,14 @@ def sing_up(request):
 	# 	if form.is_valid():
 	# 		form.save()
 	# 		# return HttpResponseRedirect(reverse('read_post', {'slug': slug}))
-	# 		return render(request, 'blog/new_post', {'cloud': cloud, 'complite': "complite"})
+	# 		return render(request, 'blog/new_post', {'complite': "complite"})
 	# else:
 	# 	form = PostForm()
-	# return render(request, 'blog/new_post', {'cloud': cloud, 'form': form})
+	# return render(request, 'blog/new_post', {'form': form})
 
 def index(request):
 	post = Post.objects.all().last()
-	return render(request, 'blog/index' , {'cloud': cloud,  'post': post})
+	return render(request, 'blog/index', {'post': post})
 
 
 def list_post(request, tag_slug=None):
@@ -67,11 +67,11 @@ def list_post(request, tag_slug=None):
 	except EmptyPage:
         # Если страница выходит за пределы допустимого диапазона (например, 9999), казать последнюю страницу результатов
 		page_list = paginator.page(paginator.num_pages)
-	return render(request, 'blog/list_post', {'cloud': cloud,  'page': page, 'page_list': page_list,'tag': tag})
+	return render(request, 'blog/list_post', { 'page': page, 'page_list': page_list,'tag': tag})
 
 
 def about_blog(request):
-	return render(request, 'blog/about_blog', {'cloud': cloud, })
+	return render(request, 'blog/about_blog', {})
 
 
 
@@ -83,10 +83,10 @@ def new_post(request):
 		if form.is_valid():
 			form.save()
 			# return HttpResponseRedirect(reverse('read_post', {'slug': slug}))
-			return render(request, 'blog/new_post', {'cloud': cloud, 'complite': "complite"})
+			return render(request, 'blog/new_post', {'complite': "complite"})
 	else:
 		form = PostForm()
-	return render(request, 'blog/new_post', {'cloud': cloud, 'form': form})
+	return render(request, 'blog/new_post', {'form': form})
 
 	
 def log_in(request):
@@ -103,12 +103,12 @@ def log_in(request):
 	return render(request, 'blog/log_in')
 	# form = UserLoginForm(request.POST or None)
 	# context = { 'form': form, }
-	# return render(request, 'blog/log_in', {'cloud': cloud,  'form': form, })
+	# return render(request, 'blog/log_in', { 'form': form, })
 
 
 def news_blog(request):
 	# cloud = Tag.objects.all().annotate(c=Count('post')).filter(c__gt=0)
-	return render(request, 'blog/news_blog', {'cloud': cloud, })# {'cloud': cloud})
+	return render(request, 'blog/news_blog', {})# {'cloud': cloud})
 
 
 
@@ -116,5 +116,5 @@ def read_post(request, slug):
 	post = Post.objects.get(slug=slug)
 	tag = post.tags.all()
 	comment_all = Comments.objects.filter(post_id=post)
-	return render(request, 'blog/read_post', {'cloud': cloud, 'tag': tag, 'post': post, 'comment_all': comment_all})
+	return render(request, 'blog/read_post', {'tag': tag, 'post': post, 'comment_all': comment_all})
 
