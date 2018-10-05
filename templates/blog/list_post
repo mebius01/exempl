@@ -7,9 +7,9 @@
 <section id="banner">
 <div class="content">
 
-
+<hr>
 {% if tag %}
-    <strong> Посты с меткоы: </strong><span class="label label-info"> {{ tag.name }}</a></span>
+    <strong> Posts Tagged: </strong><span class="label label-info"> {{ tag.name }}</a></span>
 {% endif %}
 
 
