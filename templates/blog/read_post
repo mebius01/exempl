@@ -36,13 +36,82 @@
 					<a href="{% url 'list_post_by_tag' tag.slug %}"> {{ tag.name }}</a> |
 				{% endfor %}
 				<!-- <p class="tags">Tags: {{ post.tags.all|join:" | " }}</p> -->
-				<hr>
+<hr>
+
+<!-- https://bootsnipp.com/snippets/featured/comments-list -->
 				
+<div class="container">
+            <div class="row">
+                  <form>
+      <div class="form-group">
+        <label for="comment">Your Comment</label>
+        <textarea name="comment" class="form-control" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-default">Send</button>
+    </form>
+                  <div class="page-header">
+                    <h1><small class="pull-right">45 comments</small> Comments </h1>
+                  </div> 
+                   <div class="comments-list">
+                       <div class="media">
+                           <p class="pull-right"><small>5 days ago</small></p>
+                            <a class="media-left" href="#">
+                              <!-- <img src="http://lorempixel.com/40/40/people/1/"> -->
+                            </a>
+                            <div class="media-body">
+                                
+                              <h4 class="media-heading user_name">Baltej Singh</h4>
+                              Wow! this is really great.
+                              
+                              <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
+                            </div>
+                          </div>
 
-			</div>
+<hr>
 
-
-			</section>
-			</div>
-			</div>
+                       <div class="media">
+                           <p class="pull-right"><small>5 days ago</small></p>
+                            <a class="media-left" href="#">
+                              <!-- <img src="http://lorempixel.com/40/40/people/2/"> -->
+                            </a>
+                            <div class="media-body">
+                                
+                              <h4 class="media-heading user_name">Baltej Singh</h4>
+                              Wow! this is really great.
+                              
+                              <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
+                            </div>
+                          </div>
+    
+<hr>
+                       <div class="media">
+                           <p class="pull-right"><small>5 days ago</small></p>
+                            <a class="media-left" href="#">
+                              <!-- <img src="http://lorempixel.com/40/40/people/3/"> -->
+                            </a>
+                            <div class="media-body">
+                                
+                              <h4 class="media-heading user_name">Baltej Singh</h4>
+                              Wow! this is really great.
+                              
+                              <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
+                            </div>
+                          </div>
+    
+<hr>
+                       <div class="media">
+                           <p class="pull-right"><small>5 days ago</small></p>
+                            <a class="media-left" href="#">
+                             <!--  <img src="http://lorempixel.com/40/40/people/4/"> -->
+                            </a>
+                            <div class="media-body">
+                                
+                              <h4 class="media-heading user_name">Baltej Singh</h4>
+                              Wow! this is really great.
+                              
+                              <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
+                            </div>
+                          </div>
+                   </div>
+                    
 {% endblock %}

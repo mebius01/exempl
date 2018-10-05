@@ -11,7 +11,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import auth
 from django.contrib.auth import authenticate
 from django.contrib import messages
-
+from django.contrib.auth.decorators import login_required
 
 # post = Post.objects.all()
 cloud = Post.tags.most_common()
@@ -75,6 +75,7 @@ def about_blog(request):
 
 
 
+@login_required(redirect_field_name='log_in')
 def new_post(request):
 	if request.method == 'POST':
 		form = PostForm(request.POST, request.FILES)

@@ -14,11 +14,4 @@
             {% csrf_token %}
             <input type="submit" value="Опубликовать">
         </form>
-</form>
-	<hr>
-	</div>
-	</section>
-	</div>
-	</div>
-
 {% endblock %}
