@@ -13,10 +13,6 @@ from django.contrib.auth import authenticate
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-# post = Post.objects.all()
-cloud = Post.tags.most_common()
-
-
 def test(request):
 	post = Post.objects.all().last()
 	return render(request, 'blog/test' , { 'post': post})
@@ -33,17 +29,19 @@ def sing_up(request):
 		form = UserCreationForm()
 	return render(request, 'blog/sing_up', {'form': form})
 
-	# if request.method == 'POST':
-	# 	form = PostForm(request.POST, request.FILES)
-	# 	slug_save = form.save()
-	# 	slug_save.slug = slugify(slug_save.title)
-	# 	if form.is_valid():
-	# 		form.save()
-	# 		# return HttpResponseRedirect(reverse('read_post', {'slug': slug}))
-	# 		return render(request, 'blog/new_post', {'complite': "complite"})
-	# else:
-	# 	form = PostForm()
-	# return render(request, 'blog/new_post', {'form': form})
+def log_in(request):
+	if request.user.is_authenticated:
+		return render(request, 'blog/news_blog')
+	if request.method == 'POST':
+		username = request.POST.get('username')
+		password = request.POST.get('password')
+		user = authenticate(username=username, password=password)
+		if user is not None:
+			auth.login(request, user)
+			return render(request, 'blog/news_blog')
+		else:
+			messages.error(request, 'Error wrong username/password')
+	return render(request, 'blog/log_in')
 
 def index(request):
 	post = Post.objects.all().last()
@@ -83,34 +81,15 @@ def new_post(request):
 		slug_save.slug = slugify(slug_save.title)
 		if form.is_valid():
 			form.save()
-			# return HttpResponseRedirect(reverse('read_post', {'slug': slug}))
-			return render(request, 'blog/new_post')#, {'complite': "complite"})
+			return render(request, 'blog/new_post')
 	else:
 		form = PostForm()
 	return render(request, 'blog/new_post', {'form': form})
 
-	
-def log_in(request):
-	if request.user.is_authenticated:
-		return render(request, 'blog/news_blog')
-	if request.method == 'POST':
-		username = request.POST.get('username')
-		password = request.POST.get('password')
-		user = authenticate(username=username, password=password)
-		if user is not None:
-			auth.login(request, user)
-			return render(request, 'blog/news_blog')
-		else:
-			messages.error(request, 'Error wrong username/password')
-	return render(request, 'blog/log_in')
-	# form = UserLoginForm(request.POST or None)
-	# context = { 'form': form, }
-	# return render(request, 'blog/log_in', { 'form': form, })
 
 
 def news_blog(request):
-	# cloud = Tag.objects.all().annotate(c=Count('post')).filter(c__gt=0)
-	return render(request, 'blog/news_blog', {})# {'cloud': cloud})
+	return render(request, 'blog/news_blog', {})
 
 
 

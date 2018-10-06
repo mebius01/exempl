@@ -1,5 +1,3 @@
-<!DOCTYPE HTML>
-
 {% extends "test_bootstrap.html" %}
 
 {% block content %}
@@ -49,7 +47,7 @@
 			        <label for="comment">Your Comment</label>
 			        <textarea name="comment" class="form-control" rows="3"></textarea>
 			       </div>
-			       <button type="submit" class="btn btn-default">Send</button>
+			       <button type="submit" class="btn btn-primary btn-block">Send</button>
 				   </form>
                   
 
@@ -57,6 +55,7 @@
                     <h1><small class="pull-right">45 comments</small> Comments </h1>
                   </div> 
                    <div class="comments-list">
+                       
                        <div class="media">
                            <p class="pull-right"><small>5 days ago</small></p>
                             <a class="media-left" href="#">
@@ -88,34 +87,4 @@
                           </div>
     
 <hr>
-                       <div class="media">
-                           <p class="pull-right"><small>5 days ago</small></p>
-                            <a class="media-left" href="#">
-                              <!-- <img src="http://lorempixel.com/40/40/people/3/"> -->
-                            </a>
-                            <div class="media-body">
-                                
-                              <h4 class="media-heading user_name">Baltej Singh</h4>
-                              Wow! this is really great.
-                              
-                              <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
-                            </div>
-                          </div>
-    
-<hr>
-                       <div class="media">
-                           <p class="pull-right"><small>5 days ago</small></p>
-                            <a class="media-left" href="#">
-                             <!--  <img src="http://lorempixel.com/40/40/people/4/"> -->
-                            </a>
-                            <div class="media-body">
-                                
-                              <h4 class="media-heading user_name">Baltej Singh</h4>
-                              Wow! this is really great.
-                              
-                              <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
-                            </div>
-                          </div>
-                   </div>
-                    
 {% endblock %}
