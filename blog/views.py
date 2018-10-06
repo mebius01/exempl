@@ -99,6 +99,7 @@ def log_in(request):
 		user = authenticate(username=username, password=password)
 		if user is not None:
 			auth.login(request, user)
+			return render(request, 'blog/news_blog')
 		else:
 			messages.error(request, 'Error wrong username/password')
 	return render(request, 'blog/log_in')

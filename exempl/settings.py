@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'taggit',
     'froala_editor',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'exempl.urls'
-
+# APPEND_SLASH=False
 TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 
 TEMPLATES = [

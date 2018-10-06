@@ -15,28 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
-# from mainpage import views
-# from blog import views
-
-# mainpage_patterns = [
-# 	path('', views.indexpage, name='indexpage'),
-#     re_path(r'^contact/', views.contact, name='Контакты'),
-#     path('product/<int:productid>/', views.product),
-#     path('users/<int:id>/<str:name>/', views.users),
-#     path('menu/', views.menu, name='menu'),
-# ]
-
-# blog_patterns = [
-# 	path('', views.index, name='index'),
-
-# ]
-
  
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
-    path('ckeditor/', include('ckeditor_uploader.urls')),
+    # path('accounts/', include('accounts.urls')),
     path('froala_editor/', include('froala_editor.urls')),
     ] #+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
