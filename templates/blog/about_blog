@@ -57,5 +57,24 @@
             <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
           </div><!-- /.blog-post -->
 
+
+<p><label for="id_title">Title:</label> <input type="text" name="title" maxlength="250" id="id_title" required></p>
+
+<p><label for="id_body">Body:</label> <textarea name="body" cols="40" id="id_body" required rows="10">
+
+</textarea>
+        <script>
+            $(function(){
+                $('#id_body').froalaEditor({"fileUploadParams": {"csrfmiddlewaretoken": getCookie("csrftoken")}, "imageUploadParams": {"csrfmiddlewaretoken": getCookie("csrftoken")}, "inlineMode": false, "fileUploadURL": "/froala_editor/file_upload/", "imageUploadURL": "/froala_editor/image_upload/"})
+            });
+        </script></p>
+
+
+<p><label for="id_tags">Метки:</label> <input type="text" name="tags" id="id_tags" required> <span class="helptext">Список тегов, разделенных запятыми.</span></p>
+            <input type="hidden" name="csrfmiddlewaretoken" value="nwcABkLZNie4AM9b884umJwhGrcII85DrYHtJjzx0Gm8CHjh4krJsFbNs9nj0pvy">
+            
+
+            <input type="submit" value="Опубликовать">
+        </form>
 	
 {% endblock %}

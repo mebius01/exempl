@@ -84,7 +84,6 @@
       {% endif %}
       
       {% if request.user.is_anonymous %}
-      <li><a href="{% url 'sing_up' %}"><span class="glyphicon glyphicon-new-window"></span> SignUp</a></li>
       <li><a href="{% url 'log_in' %}"><span class="glyphicon glyphicon-log-in"></span> LogIn</a></li>
       {% endif %}
       </ul>

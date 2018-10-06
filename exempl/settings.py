@@ -38,11 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'ckeditor',
-    'ckeditor_uploader',
     'taggit',
     'froala_editor',
-    'accounts',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [

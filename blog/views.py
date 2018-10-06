@@ -84,7 +84,7 @@ def new_post(request):
 		if form.is_valid():
 			form.save()
 			# return HttpResponseRedirect(reverse('read_post', {'slug': slug}))
-			return render(request, 'blog/new_post', {'complite': "complite"})
+			return render(request, 'blog/new_post')#, {'complite': "complite"})
 	else:
 		form = PostForm()
 	return render(request, 'blog/new_post', {'form': form})
