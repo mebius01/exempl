@@ -3,7 +3,6 @@ from django.http import HttpResponseRedirect
 from blog.models import Post, Comments
 from blog.forms import PostForm, UserLoginForm, CommentForm
 from pytils.translit import slugify
-# from django.contrib import auth
 from taggit.models import Tag
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Count

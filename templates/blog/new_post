@@ -2,15 +2,8 @@
 {% load bootstrap3 %}
 
 {# Load CSS and JavaScript #}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-
-{# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
 {% block content %}
 
-	<section id="banner">
-	<div class="content">
 <!-- Form -->
 <form action="." method="post" class="form">
   {% csrf_token %}

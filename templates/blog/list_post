@@ -2,9 +2,6 @@
 
 {% block content %}
 
-<section id="banner">
-<div class="content">
-
 <hr>
 {% if tag %}
     <strong> Posts Tagged: </strong><span class="label label-info"> {{ tag.name }}</a></span>
@@ -50,10 +47,5 @@
   	{% endif %}
   </ul>
 </nav>
-
-
-</section>
-</div>
-</div>
 
 {% endblock %}

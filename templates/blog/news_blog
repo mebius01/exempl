@@ -1,7 +1,6 @@
-<!DOCTYPE HTML>
-
 {% extends "test_bootstrap.html" %}
 
 {% block content %}
 
+Пусто. Пока..
 {% endblock %}

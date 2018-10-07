@@ -1,14 +1,11 @@
 {% extends "test_bootstrap.html" %}
 
 {% block content %}
-<section id="banner">
-<div class="content">
-	<header>
-		<a href="{% url 'read_post' post.slug %}">
-		<h3><strong>{{ post.title }}</strong> </h3>
-		</a>
-		{{ post.time }}
-	</header>
+
+<a href="{% url 'read_post' post.slug %}">
+	<h3><strong>{{ post.title }}</strong> </h3>
+	</a>
+	{{ post.time }}
 	<p>{{ post.body|safe }}</p>
 
 	<p class="post-meta">
@@ -16,13 +13,8 @@
 		{% for tag in post.tags.all %}
 			<a href="{% url 'list_post_by_tag' tag.slug %}"> {{ tag.name }}</a> |
 		{% endfor %}
-
-    	<!-- TEGS: {{ on_of_page_list.tags.all|join:" | " }} -->
 	</p>
+	
 	<hr>
-</div>
 
-</section>
-</div>
-</div>
 {% endblock %}
