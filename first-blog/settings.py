@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'taggit',
-    'froala_editor',
+    'ckeditor',
     'bootstrap3',
 ]
 
@@ -133,7 +133,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 CKEDITOR_UPLOAD_PATH = 'uploads/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/ckeditor')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',

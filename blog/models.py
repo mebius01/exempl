@@ -4,9 +4,9 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.forms import ModelForm
 from django.template.defaultfilters import slugify
-from ckeditor_uploader.fields import RichTextUploadingField
 from taggit.managers import TaggableManager
-from froala_editor.fields import FroalaField
+from ckeditor_uploader.fields import RichTextUploadingField
+from ckeditor.fields import RichTextField
 
 
 
@@ -17,10 +17,8 @@ class Post(models.Model):
 		('published', 'Published'),
 	)
 	title = models.CharField(max_length=250)
-	# annotation = models.TextField(max_length=1730)
 	slug = models.SlugField(max_length=250, unique_for_date='publish', verbose_name='URL',)# default=slugify('0'))
-	# author = models.ForeignKey(User, related_name='blog_posts')
-	body = FroalaField()
+	body = RichTextUploadingField(blank=True, default='')
 	publish = models.DateTimeField(default=timezone.now)
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)

@@ -1,18 +1,18 @@
 {% extends "test_bootstrap.html" %}
 {% load bootstrap3 %}
 
-{# Load CSS and JavaScript #}
 {% block content %}
 
 <!-- Form -->
 <form action="." method="post" class="form">
   {% csrf_token %}
   
-{% for field in form %} 
-	{% bootstrap_field field %} 
-{% endfor %}
 
+{% bootstrap_field form.title %}
 {{ form.media }}
+{{form.body}}
+{% bootstrap_field form.tags %}
+
   {% buttons %}
     <button type="submit" class="btn btn-primary btn-block">
       {% bootstrap_icon "send" %} Submit
