@@ -11,6 +11,8 @@ from django.contrib import auth
 from django.contrib.auth import authenticate
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
+
 
 def test(request):
 	post = Post.objects.all().last()
@@ -23,21 +25,21 @@ def sing_up(request):
 		if form.is_valid():
 			user = form.save()
 			auth.login(request, user)
-			return render(request, 'blog/news_blog')
+			return render(request, 'blog/index')
 	else:
 		form = UserCreationForm()
 	return render(request, 'blog/sing_up', {'form': form})
 
 def log_in(request):
 	if request.user.is_authenticated:
-		return render(request, 'blog/news_blog')
+		return render(request, 'blog/index')
 	if request.method == 'POST':
 		username = request.POST.get('username')
 		password = request.POST.get('password')
 		user = authenticate(username=username, password=password)
 		if user is not None:
 			auth.login(request, user)
-			return render(request, 'blog/news_blog')
+			return render(request, 'blog/list_post')
 		else:
 			messages.error(request, 'Error wrong username/password')
 	return render(request, 'blog/log_in')
@@ -48,7 +50,12 @@ def index(request):
 
 
 def list_post(request, tag_slug=None):
-	post_list_all = Post.objects.all().order_by('-publish')
+	search_in_body_title = request.GET.get('search', '')
+	if search_in_body_title:
+		post_list_all = Post.objects.filter(Q(title__icontains = search_in_body_title) | Q(body__icontains = search_in_body_title))
+	else:
+		post_list_all = Post.objects.all().order_by('-publish')
+	
 	tag = None
 	if tag_slug:
 		tag = get_object_or_404(Tag, slug=tag_slug)

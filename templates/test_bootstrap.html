@@ -49,9 +49,9 @@
         <li><a href="{% url 'news_blog' %}">News Blog</a></li>
       </ul>
      
-       <form class="navbar-form navbar-left" role="search">
+       <form class="navbar-form navbar-left" role="search" action="{% url 'list_post' %}">
         <div class="form-group">
-          <input type="text" class="search-query" placeholder="Search - Не работает. Пока..">
+          <input type="text" class="search-query" placeholder="Search" name="search">
         </div>
       </form>
       
