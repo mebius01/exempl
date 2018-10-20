@@ -1,5 +1,4 @@
 {% extends "test_bootstrap.html" %}
-
 {% block content %}
 
 <hr>
@@ -15,7 +14,7 @@
     <h3><strong>{{ on_of_page_list.title }}</strong></h3></a>
     {{ on_of_page_list.time }}
 
-	<p> {{ on_of_page_list.body | truncatewords_html:28 | safe }} </p>
+	<p> {{ on_of_page_list.body  | truncatewords_html:28 | safe }} </p>
 
 	<p class="post-meta">
 		Ters |

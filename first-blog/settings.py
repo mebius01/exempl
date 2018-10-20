@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'taggit',
+    # 'pagedown',
     'ckeditor',
     'bootstrap3',
 ]
@@ -124,7 +125,7 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
 
 
 # Static files (CSS, JavaScript, Images)
@@ -133,7 +134,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 CKEDITOR_UPLOAD_PATH = 'uploads/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',

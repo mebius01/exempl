@@ -23,7 +23,7 @@ class Post(models.Model):
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
 	status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='published')
-	tags = TaggableManager(help_text = "Список тегов, разделенных запятыми.", through=None)
+	tags = TaggableManager(help_text = "Список тегов, разделенных запятыми.", through=None, blank=True)
 	
 
 	def __str__(self):

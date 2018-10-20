@@ -14,9 +14,8 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
 
-def test(request):
-	post = Post.objects.all().last()
-	return render(request, 'blog/test' , { 'post': post})
+def base(request):
+	return render(request, 'panel.html')
 
 
 def sing_up(request):

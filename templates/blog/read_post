@@ -10,14 +10,14 @@
 					{{ post.time }}
 				</header>
 				<p>{{post.body|safe }}</p>
-				
+
 				<hr>
 
 			{% for comment in comment_all %}
 			    <div class="comment">
 			        <p class="info">
-			            <kdb> Comment {{ forloop.counter }}</kdb>  
-			            <strong>{{ comment.name }}</strong> 
+			            <kdb> Comment {{ forloop.counter }}</kdb>
+			            <strong>{{ comment.name }}</strong>
 			            <ins> <small>{{ comment.created }}</small></ins>
 			        </p>
 
@@ -26,14 +26,14 @@
 			{% empty %}
 			    <p>There are no comments yet.</p>
 			{% endfor %}
-				
+
 				<hr>
 				<p class="post-meta">
-				Ters | 
+				Ters |
 				{% for tag in post.tags.all %}
 					<a href="{% url 'list_post_by_tag' tag.slug %}"> {{ tag.name }}</a> |
 				{% endfor %}
-			
+
 <hr>
 
 {% endblock %}
